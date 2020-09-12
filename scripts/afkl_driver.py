@@ -3,7 +3,7 @@ import json
 import ssl
 import scripts.users
 import base64
-import requests
+from flask import request
 
 auth_url = 'https://api-ute2-ext.airfranceklm.com/cargo/tracking/oauth'
 track_url = 'https://api-ute2-ext.airfranceklm.com/cargo/tracking/v2/public/shipments'
