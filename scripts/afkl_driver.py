@@ -1,4 +1,3 @@
-import urllib
 import urllib.request
 import json
 import ssl
@@ -13,18 +12,14 @@ def get_access():
     user_base64 = base64.b64encode(
         ('%s:%s' % (user['username'], user['password'])).encode('ascii')
     ).decode('utf-8')
+
     auth_req = urllib.request.Request(
         auth_url,
         headers={
             'content-type': 'application/x-www-form-urlencoded',
             'Authorization': 'Basic %s' % (user_base64)
         },
-        # data = bytes(json.dumps({
-        #     'grant_type': 'client_credentials'
-        # }).encode('utf8'))
-        data = urllib.parse.urlencode({
-            'grant_type': 'client_credentials'
-        }).encode('utf8')
+        data = 'grant_type=client_credentials'.encode('utf8')
     )
     print(auth_req.__dict__)
 
@@ -34,8 +29,8 @@ def get_access():
 
 def track_shipment(track_request_data):
     # access_token = get_access()
-    access_token = 'n726vt8mmha7mge4utshm9bu'
-    # print(access_token)
+    access_token = 'nduerk9acxqftrjux8qktvqb'
+    print(access_token)
 
     req_awb = '/%s' % (track_request_data)
     req_filters = '?expand=shipment-characteristics'

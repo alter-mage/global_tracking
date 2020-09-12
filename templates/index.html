@@ -22,5 +22,13 @@
             </tr>
         {% endfor %}
     </table>
+    <table border="1">
+        {% for key, value in track_response_lh.items() %}
+            <tr>
+                <th>{{ key }}</th>
+                <tr>{{ value }}</tr>
+            </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>

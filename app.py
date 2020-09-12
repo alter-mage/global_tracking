@@ -24,6 +24,11 @@ def track():
     ]}
 
     track_request_afkl = '057-91111134'
+
+    track_request_lh = {
+        'aWBPrefix': '020',
+        'aWBNumber': '52359764'
+    }
     
     track_response_qr = scripts.qr_driver.track_shipment(
         track_request_qr
@@ -32,19 +37,16 @@ def track():
     track_response_afkl = scripts.afkl_driver.track_shipment(
         track_request_afkl
     )
+
+    track_response_lh = scripts.lh_driver.track_lh_shipment(
+        track_request_lh
+    )
     
     return render_template(
         'index.html',
         track_response_qr=track_response_qr,
-        track_response_afkl=track_response_afkl
-    )
-
-@app.route('/tracklh')
-def tracklh():
-    track_response = scripts.lh_driver.track_lh_shipment()
-    return render_template(
-        'index.html',
-        track_response=track_response
+        track_response_afkl=track_response_afkl,
+        track_response_lh=track_response_lh
     )
 
 if __name__ == '__main__':
