@@ -31,7 +31,6 @@ def get_access():
 def track_shipment(track_request_data):
     access_token = get_access()
     # access_token = 'nduerk9acxqftrjux8qktvqb'
-    print(access_token)
 
     req_awb = '/%s' % (track_request_data)
     req_filters = '?expand=shipment-characteristics'
