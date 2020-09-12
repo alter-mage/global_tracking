@@ -5,6 +5,14 @@
     <title>FlaskBlog</title>
 </head>
 <body>
-   <h1>Welcome to FlaskBlog</h1>
+    <h1>Welcome to FlaskBlog</h1>
+            <table border="1">
+            {% for key, value in track_response.items() %}
+            <tr>
+                <th>{{ key }}</th>
+                <tr>{{ value }}</tr>
+            </tr>
+            {% endfor %}
+    </table>
 </body>
 </html>
