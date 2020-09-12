@@ -2,6 +2,7 @@ from flask import Flask, render_template
 import scripts.qr_driver
 import scripts.afkl_driver
 import scripts.lh_driver
+import scripts.data
 
 app = Flask(__name__)
 
@@ -13,7 +14,9 @@ def index():
     )
 
 @app.route('/track')
-def track():
+def track(track_shipment_id='shipment_id_1'):
+    tracking_ids = scripts.data.get_tracking_ids(track_shipment_id)
+    # print(tracking_ids)
     track_request_qr = {
         "cargoTrackingRequestSOs": [
         {
