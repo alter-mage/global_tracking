@@ -2,33 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FlaskBlog</title>
+    <title>Welcome</title>
 </head>
 <body>
-    <h1>Welcome to FlaskBlog</h1>
-    <table border="1">
-        {% for key, value in track_response_qr.items() %}
-            <tr>
-                <th>{{ key }}</th>
-                <tr>{{ value }}</tr>
-            </tr>
-        {% endfor %}
-    </table>
-    <table border="1">
-        {% for key, value in track_response_afkl.items() %}
-            <tr>
-                <th>{{ key }}</th>
-                <tr>{{ value }}</tr>
-            </tr>
-        {% endfor %}
-    </table>
-    <table border="1">
-        {% for key, value in track_response_lh.items() %}
-            <tr>
-                <th>{{ key }}</th>
-                <tr>{{ value }}</tr>
-            </tr>
-        {% endfor %}
-    </table>
+    <h1>Track Master</h1>
+    <a href="/track">Track</a>
+
 </body>
 </html>

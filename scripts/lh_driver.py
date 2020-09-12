@@ -1,5 +1,5 @@
 import urllib.request
-import requests
+from flask import request
 import json
 import ssl
 import scripts.users

@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template(
-        'Home.html'
+        'index.html'
     )
 
 @app.route('/track')
@@ -43,7 +43,7 @@ def track():
     )
     
     return render_template(
-        'index.html',
+        'track.html',
         track_response_qr=track_response_qr,
         track_response_afkl=track_response_afkl,
         track_response_lh=track_response_lh
