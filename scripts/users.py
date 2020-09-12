@@ -9,6 +9,11 @@ users = {
     'afkl': [{
         'username': 'ubne6w8ytcrneh3fa7msmnw2',
         'password': 'ky3sytdTHX'
+    }],
+    "lh": [{
+        "userHostKey":"TESTHOST",
+        "clientId":"na8va46yrk9yj5v57vmn55ry",
+        "clientSecret":"RGD2hCysUdP7A8WXEw84"
     }]
 }
 
