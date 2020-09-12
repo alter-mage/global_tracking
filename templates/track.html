@@ -7,22 +7,38 @@
 <body style="background-color:powderblue;">
     <h1>Tracking Details</h1>
     <table border="1">
-            <tr> QR Details</tr>
-             <tr>
-                <th style="background-color:#00FF00">{{track_response_qr}}</th>
+        <thead>
+            <tr style="background-color:#00a2ff">
+                <th>QR Details</th>
+                <th>AFKL Details</th>
+                <th>LH Details</th>
             </tr>
-    </table>
-    <table border="1">
-            <tr>AFKL Details</tr>
-            <tr>
-                <th style="background-color:#00FF00">{{track_response_afkl}}</th>
+        </thead>
+        <tbody>
+            <tr style="background-color:#00FF00">
+                <td>   
+                    <ul>
+                    {% for x in track_response_qr.cargoTrackingSOs[0] %}
+                    <li> {{x}} {{track_response_qr.cargoTrackingSOs[0][x]}}</li>
+                    {% endfor %}
+                   </ul>
+                </td>
+                <td>
+                    <ul>
+                        {% for x in track_response_afkl.Shipments[0]%}
+                        <li> {{x}} {{track_response_afkl.Shipments[0][x]}}</li>
+                        {% endfor %}
+                       </ul>
+                </td>
+                <td>
+                    <ul>
+                        {% for x in track_response_lh.shipmentTrackingStatus%}
+                        <li> {{x}} {{track_response_lh.shipmentTrackingStatus[x]}}</li>
+                        {% endfor %}
+                       </ul>
+                </td>
             </tr>
-    </table>
-    <table border="1">
-            <tr> LH Details</tr>
-            <tr>
-                <th style="background-color:#00FF00">{{track_response_lh}}</th>
-            </tr>
+        </tbody>
     </table>
 </body>
 </html>
