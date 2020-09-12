@@ -16,22 +16,10 @@ def index():
 @app.route('/track')
 def track(track_shipment_id='shipment_id_1'):
     tracking_ids = scripts.data.get_tracking_ids(track_shipment_id)
-    # print(tracking_ids)
-    track_request_qr = {
-        "cargoTrackingRequestSOs": [
-        {
-            "documentType": "MAWB",
-            "documentPrefix": "157",
-            "documentNumber": "12345678"
-        }
-    ]}
 
-    track_request_afkl = '057-91111134'
-
-    track_request_lh = {
-        'aWBPrefix': '020',
-        'aWBNumber': '52359764'
-    }
+    track_request_qr = tracking_ids['qr']
+    track_request_afkl = tracking_ids['afkl']
+    track_request_lh = tracking_ids['lh']
     
     track_response_qr = scripts.qr_driver.track_shipment(
         track_request_qr
