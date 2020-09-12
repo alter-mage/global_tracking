@@ -8,7 +8,6 @@ track_url = 'https://croamisstg.qatarairways.com.qa/cargoapis/api/v1/trackShipme
 
 def get_access():
     user = scripts.users.get_qr_user()
-    # print(user)
     auth_req = urllib.request.Request(
         auth_url,
         headers={
@@ -23,7 +22,6 @@ def get_access():
 
 def track_shipment(track_request_data):
     access_token = get_access()
-    # print(access_token)
 
     track_req = urllib.request.Request(
         track_url,

@@ -33,7 +33,7 @@ def track_shipment(track_request_data):
     # access_token = 'nduerk9acxqftrjux8qktvqb'
 
     req_awb = '/%s' % (track_request_data)
-    req_filters = '?expand=shipment-characteristics'
+    req_filters = '?expand=shipment-characteristics,milestones'
     track_req = urllib.request.Request(
         track_url + req_awb + req_filters,
         headers={
@@ -41,7 +41,6 @@ def track_shipment(track_request_data):
             'Authorization': 'Bearer %s' % (access_token)
         }
     )
-    print(track_req.__dict__)
 
     track_res = urllib.request.urlopen(track_req, context=ssl._create_unverified_context())
     track_data = json.loads(track_res.read())
