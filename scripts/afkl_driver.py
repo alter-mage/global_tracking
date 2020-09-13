@@ -21,6 +21,19 @@ status = {
     'delivered': ['delivery']
 }
 
+status_text = {
+    'BKG': 'Booking',
+    'FWB': 'Freight Waybill',
+    'FOH': 'Freight On Hand',
+    'RCS': 'Cargo Received from Shipper and Accepted for Carriage',
+    'DEP': 'Shipment Departure from Origin / Transit Station',
+    'ARR': 'Shipment Arrival at Transit / Destination Station',
+    'RCF': 'Cargo Received into Warehouse at Transit / Destination Station',
+    'NFD': 'Notification of Readiness for Delivery of Cargo',
+    'AWD': 'Documents Delivery to Forwarder',
+    'DLV': 'Cargo Delivered to Pick up agent at final destination'
+}
+
 def get_access():
     user = scripts.users.get_afkl_user()
     user_base64 = base64.b64encode(
@@ -59,7 +72,8 @@ def process_response(track_response):
         cargo_delivered_milestones = []
         for cargo_event in shipment['Milestones']['Events']:
             cargo_milestone = {
-                'event_airport': cargo_event['EventLocation']
+                'event_airport': cargo_event['EventLocation'],
+                'event_description': status_text[cargo_event['EventCode']]
             }
 
             if 'EventActualTime' in cargo_event:
