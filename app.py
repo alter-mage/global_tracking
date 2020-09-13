@@ -35,7 +35,7 @@ def track(track_shipment_id='shipment_id_1'):
     
     return render_template(
         'trackship.html',
-        qr_cargo_info=track_response_qr,
+        track_response_qr=track_response_qr,
         track_response_afkl=track_response_afkl,
         track_response_lh=track_response_lh
     )

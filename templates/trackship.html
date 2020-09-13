@@ -58,21 +58,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<p>Confirmed Order</p>
 					<span class="tooltiptext1">
 						<ol class="tooltipList">
+							{% for x in track_response_qr[0]['cargo_confirmed_milestones']%}
 							<li>
-								asdfasdfasdf asdfasdfasdf asdfasdfasdf asdfasdfasdf
+								{{x['movement_details']}}
 							</li>
-							<li>
-								asdf
-							</li>
-							<li>
-								asdf
-							</li>
-							<li>
-								asdf
-							</li>
-							<li>
-								asdf
-							</li>
+							{% endfor %}
 						</ol>
 					</span>
 				</div>
@@ -84,7 +74,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</div>
 					<span id="dispatchLine"></span>
 					<p><span class="hideVisibility">------</span>InTransit</p>
-					<span class="tooltiptext2">sdflskclskdclsdkclslckslklsdkcldkc</span>
+					<span class="tooltiptext2">
+						<ol class="tooltipList">
+							{% for x in track_response_qr[0]['cargo_transit_milestones']%}
+							<li>
+								{{x['movement_details']}}
+							</li>
+							{% endfor %}
+						</ol>
+					</span>
 				</div>
 			</div>
 			<div class="delivery">
@@ -93,7 +91,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<img src="../static/img/track/delivery.png" alt="delivery">
 					</div>
 					<p>Product Delivered</p>
-				<span class="tooltiptext3">Tooltip text</span>
+				<span class="tooltiptext3">
+					<ol class="tooltipList">
+						{% for x in track_response_qr[0]['cargo_delivered_milestones']%}
+						<li>
+							{{x['movement_details']}}
+						</li>
+						{% endfor %}
+					</ol>
+				</span>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -102,11 +108,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 		</div>
 	</div>
-
-
-<div class="footer">
-	<p>Copyright © Shipment Track Widget. All Rights Reserved | Design by <a href="http://w3layouts.com" target="_blank">W3layouts</a></p>
-</div>
 <script>
 	var isRedBackgroundKey = 'dispatchcircle';
 	let allCircles = ['confirmCircle', 'dispatchcircle', 'deliverycircle'];
