@@ -12,6 +12,15 @@ confirmed_status = ['BKG', 'FWB', 'FOH', 'RCS']
 transit_status = ['DEP', 'ARR', 'NFD', 'RCF']
 delivered_status = ['DLV']
 
+status = {
+    'confirmed': ['booking'],
+    'in_transit': [
+        'check-in',
+        'en route'
+    ],
+    'delivered': ['delivery']
+}
+
 def get_access():
     user = scripts.users.get_afkl_user()
     user_base64 = base64.b64encode(
@@ -77,6 +86,9 @@ def process_response(track_response):
             'cargo_transit_milestones': cargo_transit_milestones,
             'cargo_delivered_milestones': cargo_delivered_milestones
         }
+        for status_key in status:
+            if any(cargo_info['stage']['phase'] in phase for phase in status[status_key]):
+                cargo_so['status'] = status_key
         cargo_sos.append(cargo_so)
     return cargo_sos
 

@@ -57,12 +57,15 @@ def process_response(track_response):
                     
             if any(cargo_tracking_status['movementStatus'] in status for status in confirmed_status):
                 cargo_confirmed_milestones.append(cargo_milestone)
+                confirmed = True
 
             if any(cargo_tracking_status['movementStatus'] in status for status in transit_status):
                 cargo_transit_milestones.append(cargo_milestone)
+                in_transit = True
 
             if any(cargo_tracking_status['movementStatus'] in status for status in delivered_status):
                 cargo_delivered_milestones.append(cargo_milestone)
+                delivered = True 
                 
         cargo_so = {
             'cargo_info': cargo_info,
@@ -70,6 +73,12 @@ def process_response(track_response):
             'cargo_transit_milestones': cargo_transit_milestones,
             'cargo_delivered_milestones': cargo_delivered_milestones
         }
+        if delivered:
+            cargo_so['status'] = 'delivered'
+        elif in_transit:
+            cargo_so['status'] = 'in_transit'
+        else:
+            cargo_so['status'] = 'confirmed'
         cargo_sos.append(cargo_so)
     return cargo_sos
 
