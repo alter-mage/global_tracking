@@ -35,10 +35,16 @@ def track(track_shipment_id='shipment_id_1'):
     
     return render_template(
         'track.html',
-        track_response_qr=track_response_qr,
+        qr_cargo_info=track_response_qr,
         track_response_afkl=track_response_afkl,
         track_response_lh=track_response_lh
     )
+
+@app.errorhandler(500)
+def timeout(e):
+    return render_template(
+        '500.html'
+)
 
 if __name__ == '__main__':
     app.run(debug=True)
