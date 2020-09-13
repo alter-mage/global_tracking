@@ -6,6 +6,10 @@ import scripts.users
 auth_url = 'https://croamisstg.qatarairways.com.qa/cargoapis/api/v1/auth/authorize'
 track_url = 'https://croamisstg.qatarairways.com.qa/cargoapis/api/v1/trackShipment'
 
+confirmed_status = ['RCS']
+transit_status = ['DEP', 'ARR', 'NFD', 'RCF']
+delivered_status = ['DLV']
+
 def get_access():
     user = scripts.users.get_qr_user()
     auth_req = urllib.request.Request(
@@ -29,11 +33,12 @@ def process_response(track_response):
             'origin': cargo_tracking_so['origin'],
             'destination': cargo_tracking_so['destination']
         }
-        
-        cargo_milestones = []
+
+        cargo_confirmed_milestones = []
+        cargo_transit_milestones = []
+        cargo_delivered_milestones = []
         for cargo_tracking_status in cargo_tracking_so['cargoTrackingMvtStausList']:
             cargo_milestone = {
-                'movement_status': cargo_tracking_status['movementStatus'],
                 'event_date': cargo_tracking_status['eventDate'],
                 'event_airport': cargo_tracking_status['eventAirport'],
                 'movement_details': cargo_tracking_status['movementDetails']
@@ -48,14 +53,24 @@ def process_response(track_response):
                         'uld_type': cargo_tracking_uldso['uldType']
                     }
                     cargo_uldsos.append(cargo_uldso)
+                cargo_milestone['cargo_uldso'] = cargo_uldsos
+                    
+            if any(cargo_tracking_status['movementStatus'] in status for status in confirmed_status):
+                cargo_confirmed_milestones.append(cargo_milestone)
 
-            cargo_milestones.append(cargo_milestone)
+            if any(cargo_tracking_status['movementStatus'] in status for status in transit_status):
+                cargo_transit_milestones.append(cargo_milestone)
+
+            if any(cargo_tracking_status['movementStatus'] in status for status in delivered_status):
+                cargo_delivered_milestones.append(cargo_milestone)
                 
-    cargo_so = {
-        'cargo_info': cargo_info,
-        'cargo_milestones': cargo_milestones
-    }
-    cargo_sos.append(cargo_so)
+        cargo_so = {
+            'cargo_info': cargo_info,
+            'cargo_confirmed_milestones': cargo_confirmed_milestones,
+            'cargo_transit_milestones': cargo_transit_milestones,
+            'cargo_delivered_milestones': cargo_delivered_milestones
+        }
+        cargo_sos.append(cargo_so)
     return cargo_sos
 
 def track_shipment(track_request_data):
