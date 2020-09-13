@@ -55,7 +55,9 @@
                                                     <td>
                                                         <ul>
                                                             {% for x in track_response_afkl[0]['cargo_confirmed_milestones']%}
-                                                            <li> {{x}}</li>
+                                                            {% for y in x%}
+                                                            <li> {{y}}:{{x[y]}}</li>
+                                                            {% endfor %}
                                                             {% endfor %}
                                                            </ul
                                                     </td>
