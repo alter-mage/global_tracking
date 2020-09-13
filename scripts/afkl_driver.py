@@ -82,7 +82,8 @@ def process_response(track_response):
 
 
 def track_shipment(track_request_data):
-    access_token = get_access()
+    # access_token = get_access()
+    access_token = 'y9r8vcevyqevekp5jm8d3286'
 
     req_awb = '/%s' % (track_request_data)
     req_filters = '?expand=shipment-characteristics,milestones'
