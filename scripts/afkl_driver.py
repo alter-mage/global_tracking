@@ -82,8 +82,8 @@ def process_response(track_response):
 
 
 def track_shipment(track_request_data):
-    # access_token = get_access()
-    access_token = 'y9r8vcevyqevekp5jm8d3286'
+    access_token = get_access()
+    # access_token = 'y9r8vcevyqevekp5jm8d3286'
 
     req_awb = '/%s' % (track_request_data)
     req_filters = '?expand=shipment-characteristics,milestones'
@@ -97,5 +97,4 @@ def track_shipment(track_request_data):
 
     track_res = urllib.request.urlopen(track_req, context=ssl._create_unverified_context())
     track_data = json.loads(track_res.read())
-    # process_response(track_data)
     return process_response(track_data)
