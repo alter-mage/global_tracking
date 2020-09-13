@@ -45,26 +45,26 @@
                                             </thead>
                                             <tbody>
                                                 <tr style="background-color:#d4f5d4">
-                                                    <td>   
+                                                    <td>
                                                         <ul>
-                                                        {% for x in track_response_qr.cargoTrackingSOs[0] %}
-                                                        <li> {{x}}: {{track_response_qr.cargoTrackingSOs[0][x]}}</li>
-                                                        {% endfor %}
-                                                       </ul>
+                                                            {% for x in track_response_qr[0]['cargo_confirmed_milestones']%}
+                                                            <li> {{x['movement_details']}}</li>
+                                                            {% endfor %}
+                                                           </ul
                                                     </td>
                                                     <td>
                                                         <ul>
-                                                            {% for x in track_response_afkl.Shipments[0]%}
-                                                            <li> {{x}}: {{track_response_afkl.Shipments[0][x]}}</li>
+                                                            {% for x in track_response_afkl[0]['cargo_confirmed_milestones']%}
+                                                            <li> {{x}}</li>
                                                             {% endfor %}
-                                                           </ul>
+                                                           </ul
                                                     </td>
                                                     <td>
                                                         <ul>
-                                                            {% for x in track_response_lh.shipmentTrackingStatus%}
-                                                            <li> {{x}}: {{track_response_lh.shipmentTrackingStatus[x]}}</li>
+                                                            {% for x in track_response_qr[0]['cargo_confirmed_milestones']%}
+                                                            <li> {{x['movement_details']}}</li>
                                                             {% endfor %}
-                                                           </ul>
+                                                           </ul
                                                     </td>
                                                 </tr>
                                             </tbody>
