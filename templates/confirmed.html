@@ -40,7 +40,6 @@
                                                 <tr style="background-color:#e3e9ec">
                                                     <th>QR Details</th>
                                                     <th>AFKL Details</th>
-                                                    <th>LH Details</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -58,13 +57,6 @@
                                                             {% for y in x%}
                                                             <li> {{y}}:{{x[y]}}</li>
                                                             {% endfor %}
-                                                            {% endfor %}
-                                                           </ul
-                                                    </td>
-                                                    <td>
-                                                        <ul>
-                                                            {% for x in track_response_qr[0]['cargo_confirmed_milestones']%}
-                                                            <li> {{x['movement_details']}}</li>
                                                             {% endfor %}
                                                            </ul
                                                     </td>
