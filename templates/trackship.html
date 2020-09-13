@@ -34,7 +34,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="contentContainer">
 		<div class="content">
 	<div class="content1">
-		<h2>Order Tracking: Order No</h2>
+		<h2>Order Tracking: One Order No</h2>
 	</div>
 	<div class="content2">
 		<div class="content2-header1">
@@ -73,7 +73,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<img src="../static/img/track/dispatch.png" alt="dispatch product">
 					</div>
 					<span id="dispatchLine"></span>
-					<p><span class="hideVisibility">------</span>InTransit</p>
+					<p><span class="hideVisibility">------</span>
+					<a href="/transit">InTransit</a>	
+					</p>
 					<span class="tooltiptext2">
 						<ol class="tooltipList">
 							{% for x in track_response_qr[0]['cargo_transit_milestones']%}
@@ -90,7 +92,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<div id="deliverycircle">
 						<img src="../static/img/track/delivery.png" alt="delivery">
 					</div>
-					<p>Product Delivered</p>
+					<p><a href="/delivered">Product Delivered</a> </p>
 				<span class="tooltiptext3">
 					<ol class="tooltipList">
 						{% for x in track_response_qr[0]['cargo_delivered_milestones']%}

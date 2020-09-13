@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Track Details</title>
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/slicknav.css">
+    <link rel="stylesheet" href="../static/css/flaticon.css">
+    <link rel="stylesheet" href="../static/css/animate.min.css">
+    <link rel="stylesheet" href="../static/css/magnific-popup.css">
+    <link rel="stylesheet" href="../static/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../static/css/themify-icons.css">
+    <link rel="stylesheet" href="../static/css/slick.css">
+    <link rel="stylesheet" href="../static/css/nice-select.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <main>
+        <!--? slider Area Start-->
+        <div class="slider-area ">
+            <div class="slider-active">
+                <!-- Single Slider -->
+                <div class="single-slider slider-height d-flex align-items-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-9 col-lg-9">
+                                <div class="hero__caption">
+                                    <h1 ><span>Cargo Tracker Details</span></h1>
+                                </div>
+                                <!--Hero form -->
+
+                                <!-- Hero Pera -->
+                                <div class="hero-pera">
+                                    <p>
+                                        <table border="1">
+                                            <thead>
+                                                <tr style="background-color:#e3e9ec">
+                                                    <th>QR Details</th>
+                                                    <th>AFKL Details</th>
+                                                    <th>LH Details</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr style="background-color:#d4f5d4">
+                                                    <td>
+                                                        <ul>
+                                                            {% for x in track_response_qr[0]['cargo_delivered_milestones']%}
+                                                            <li> {{x['movement_details']}}</li>
+                                                            {% endfor %}
+                                                           </ul
+                                                    </td>
+                                                    <td>
+                                                        <ul>
+                                                            {% for x in track_response_afkl[0]['cargo_delivered_milestones']%}
+                                                            <li> {{x}}</li>
+                                                            {% endfor %}
+                                                           </ul
+                                                    </td>
+                                                    <td>
+                                                        <ul>
+                                                            {% for x in track_response_qr[0]['cargo_delivered_milestones']%}
+                                                            <li> {{x['movement_details']}}</li>
+                                                            {% endfor %}
+                                                           </ul
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>
