@@ -100,7 +100,7 @@ body {
 }
 span.line {
     height: 5px;
-    width: 300px;
+    width: 260px;
     background-color:#F5998E;
     display: block;
     position: absolute;
@@ -116,13 +116,13 @@ span.line {
 }
 
 .confirm span.line, .process span.line {
-	background-color:#98D091; 
+	background-color:#98D091;
 }
 .content3 p {
 	margin-left:-50%;
 	font-size:15px;
 	font-weight:600;
-} 
+}
 
 .hideVisibility{
 	visibility: hidden;
@@ -212,22 +212,28 @@ span.line {
 
 .tooltip1 .tooltiptext1 {
   visibility: hidden;
-  background-color: black;
-  color: #fff;
+  background-color: #f5f5f5d1;
+  color: #0a0909;
   text-align: center;
   border-radius: 6px;
   padding: 5px 25px 5px 5px;
   position: absolute;
-  z-index: 1;
-  top: 100%;
+  z-index: 9;
+  font-weight: bold;
+  bottom: 100%;
   left: 25%;
   margin-left: -60px;
+  box-shadow: 5px 10px 18px #888888;
+  font-size: 12px;
+  max-height: 200px;
+  overflow: auto;
 }
 
 .tooltip1 .tooltiptext1::after {
   content: "";
+  visibility: hidden;
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
@@ -245,24 +251,29 @@ span.line {
 }
 
 .tooltip2 .tooltiptext2 {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
+ visibility: hidden;
+  background-color: #f5f5f5d1;
+  color: #0a0909;
   text-align: center;
   border-radius: 6px;
   padding: 5px 25px 5px 5px;
   position: absolute;
-  z-index: 1;
-  top: 100%;
+  z-index: 9;
+  font-weight: bold;
+  bottom: 100%;
   left: 25%;
   margin-left: -60px;
+  box-shadow: 5px 10px 18px #888888;
+  font-size: 12px;
+  max-height: 200px;
+  overflow: auto;
 }
 
 .tooltip2 .tooltiptext2::after {
-  content: "";
+ content: "";
+  visibility: hidden;
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
@@ -281,23 +292,28 @@ span.line {
 
 .tooltip3 .tooltiptext3 {
   visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
+  background-color: #f5f5f5d1;
+  color: #0a0909;
   text-align: center;
   border-radius: 6px;
   padding: 5px 25px 5px 5px;
   position: absolute;
-  z-index: 1;
-  top: 100%;
+  z-index: 9;
+  font-weight: bold;
+  bottom: 100%;
   left: 25%;
   margin-left: -60px;
+  box-shadow: 5px 10px 18px #888888;
+  font-size: 12px;
+  max-height: 200px;
+  overflow: auto;
 }
 
 .tooltip3 .tooltiptext3::after {
   content: "";
+  visibility: hidden;
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
@@ -312,7 +328,7 @@ span.line {
 /*---- responsive-design -----*/
 @media(max-width:1920px){
 	span.line {
-	width:300px;
+	width:260px;
 	left:32%;
 	}
 	.shipment{
@@ -328,14 +344,14 @@ margin-left:-65%;
     margin-left: -60%;
 }
 span.line {
-    width: 300px;
+    width: 260px;
     left: 37%;
 }
 }
 
 @media(max-width:1600px){
 span.line {
-    width: 300px;
+    width: 260px;
     left: 39%;
 }
 }
@@ -345,14 +361,14 @@ span.line {
     margin-left: -53%;
 }
 span.line {
-    width: 300px;
+    width: 260px;
     left: 43%;
 }
 }
 
 @media (max-width: 1366px){
 span.line {
-    width: 300px;
+    width: 260px;
     left: 45%;
 }
 .shipment {
@@ -362,7 +378,7 @@ span.line {
 
 @media (max-width: 1280px){
 span.line {
-    width: 300px;
+    width: 260px;
     left: 48%;
 	top:29%;
 }
@@ -373,14 +389,14 @@ span.line {
 width: 75%;
 }
 span.line {
-    width: 300px;
+    width: 260px;
 left: 46%;
 }
 }
 
 @media (max-width: 1050px){
 span.line {
-    width: 300px;
+    width: 260px;
     left: 47%;
 }
 }
@@ -399,7 +415,7 @@ span.line {
     width: 80%;
 }
 span.line {
-    width: 300px;
+    width: 260px;
     left:  %;
 }
 }
@@ -409,7 +425,7 @@ span.line {
     width: 85%;
 }
 span.line {
-    width: 300px;
+    width: 260px;
     left: 49%;
 }
 }
@@ -434,14 +450,14 @@ span.line {
     margin: 0 -19% 0 -10%;
 }
 span.line {
-    width: 300px;
+    width: 260px;
     left: 51%;
 }
 }
 
 @media (max-width: 736px){
 	span.line {
-    width: 300px;
+    width: 260px;
     left: 55%;
 }
 }
@@ -464,7 +480,7 @@ span.line {
 	margin-left:4%;
 }
 span.line {
-    width: 300px;
+    width: 260px;
     left: 60%;
 }
 }
@@ -498,7 +514,7 @@ span.line {
 	height: 395px;
 }
 span.line {
-    width: 300px;
+    width: 260px;
     left: 58%;
 }
 }
@@ -511,7 +527,7 @@ span.line {
 	padding: 1em;
 }
 	span.line {
-    width: 300px;
+    width: 260px;
     left: 47%;
 }
 	.content2-header1 {
@@ -597,7 +613,7 @@ span.line {
     left: 28%;
 }
 	span.line {
-    width: 300px;
+    width: 260px;
     left: 46%;
     height: 48px;
 	top:124%;
