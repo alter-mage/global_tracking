@@ -45,7 +45,7 @@ def get_access():
         headers={
             'content-type': 'application/x-www-form-urlencoded',
             'Authorization': 'Basic %s' % (user_base64),
-            'Cookie': 'BCSI-CS-5f9302ec8120e41e=1; CLID_cgobkgap_xte_=CZzuipnN+rvxhrxMBWqJMCuED4zhyxv+OKey2m8bbWli6iRF8aNLVLhsZ5RED9Wkh68oMfAAAAAB; BCSI-CS-95da4b98f8f01d25=1; BCSI-CS-7c98ac7721150115=1; BCSI-CS-f91d1304096ea5a1=1'
+            'Cookie': 'BCSI-CS-5f9302ec8120e41e=1; CLID_cgobkgap_xte_=CZzuipnN+rvxhrxMBWqJMCuED4zhyxv+OKey2m8bbWli6iRF8aNLVLhsZ5RED9Wkh68oMfAAAAAB; BCSI-CS-95da4b98f8f01d25=1; BCSI-CS-7c98ac7721150115=1; BCSI-CS-f91d1304096ea5a1=1; BCSI-CS-7e7e9dd45470ce72=1; BCSI-CS-87d71def9ee4d53c=1'
         },
         data = 'grant_type=client_credentials'.encode('utf8')
     )
@@ -109,7 +109,7 @@ def process_response(track_response):
 
 def track_shipment(track_request_data):
     # access_token = get_access()
-    access_token = 'kkdrux2prepxu8btmtvmmewu'
+    access_token = 'r9ujezkkxjg2d3pcuv4w2hp9'
 
     req_awb = '/%s' % (track_request_data)
     req_filters = '?expand=shipment-characteristics,milestones'
